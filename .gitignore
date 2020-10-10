@@ -3,6 +3,10 @@ archive/
 SARS-CoV-2 images not trained on/
 SARS-CoV-2 images trained/
 
+# windows shortcuts
+*.url
+*.lnk
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
