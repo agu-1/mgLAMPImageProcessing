@@ -58,10 +58,19 @@
 
     % %set cropping param and initialize counting matrices
     A_sep = zeros(9,4);
-    A_sep(1,:)= [1,300,1,300];A_sep(2,:)= [1,300,301,600];A_sep(3,:)=[1,300,601,crop(4)-crop(3)];
-    A_sep(4,:)= [301,600,1,300];A_sep(5,:)=[301,600,301,600];A_sep(6,:)= [301,600,601,crop(4)-crop(3)];
-    A_sep(7,:)= [601,crop(2)-crop(1),1,300];A_sep(8,:)=[601,crop(2)-crop(1),301,600];
-    A_sep(9,:)= [601,crop(2)-crop(1),601,crop(4)-crop(3)];
+%     A_sep(1,:)= [1,300,1,300];A_sep(2,:)= [1,300,301,600];A_sep(3,:)=[1,300,601,crop(4)-crop(3)];
+%     A_sep(4,:)= [301,600,1,300];A_sep(5,:)=[301,600,301,600];A_sep(6,:)= [301,600,601,crop(4)-crop(3)];
+%     A_sep(7,:)= [601,crop(2)-crop(1),1,300];A_sep(8,:)=[601,crop(2)-crop(1),301,600];
+%     A_sep(9,:)= [601,crop(2)-crop(1),601,crop(4)-crop(3)];
+    A_sep(1,:)= [1,round(size(A,2)/3),1,round(size(A,1)/3)];
+    A_sep(2,:)= [1,round(size(A,2)/3),round(size(A,1)/3)+1,round(size(A,1)/3*2)];
+    A_sep(3,:)=[1,round(size(A,2)/3),round(size(A,1)/3*2)+1,crop(4)-crop(3)];
+    A_sep(4,:)= [round(size(A,2)/3)+1,round(size(A,2)/3*2),1,round(size(A,1)/3)];
+    A_sep(5,:)=[round(size(A,2)/3)+1,round(size(A,2)/3*2),round(size(A,1)/3)+1,round(size(A,1)/3*2)];
+    A_sep(6,:)= [round(size(A,2)/3)+1,round(size(A,2)/3*2),round(size(A,1)/3*2)+1,crop(4)-crop(3)];
+    A_sep(7,:)= [round(size(A,2)/3*2)+1,crop(2)-crop(1),1,round(size(A,1)/3)];
+    A_sep(8,:)=[round(size(A,2)/3*2)+1,crop(2)-crop(1),round(size(A,1)/3)+1,round(size(A,1)/3*2)];
+    A_sep(9,:)= [round(size(A,2)/3*2)+1,crop(2)-crop(1),round(size(A,1)/3*2)+1,crop(4)-crop(3)];
     counted = zeros(9,1);
     centers_all = [];
     %% 
